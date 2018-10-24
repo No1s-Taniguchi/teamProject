@@ -9,20 +9,21 @@
  *
  * @copyright     Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
  * @link          https://cakephp.org CakePHP(tm) Project
- * @since         3.3.4
+ * @since         2.0.0
  * @license       https://opensource.org/licenses/mit-license.php MIT License
  */
-namespace App\Controller;
+namespace Cake\Controller;
 
 use Cake\Event\Event;
 
 /**
  * Error Handling Controller
  *
- * Controller used by ExceptionRenderer to render error responses.
+ * Controller used by ErrorHandler to render error views.
  */
-class ErrorController extends AppController
+class ErrorController extends Controller
 {
+
     /**
      * Initialization hook method.
      *
@@ -34,35 +35,13 @@ class ErrorController extends AppController
     }
 
     /**
-     * beforeFilter callback.
-     *
-     * @param \Cake\Event\Event $event Event.
-     * @return \Cake\Http\Response|null|void
-     */
-    public function beforeFilter(Event $event)
-    {
-    }
-
-    /**
      * beforeRender callback.
      *
      * @param \Cake\Event\Event $event Event.
-     * @return \Cake\Http\Response|null|void
+     * @return void
      */
     public function beforeRender(Event $event)
     {
-        parent::beforeRender($event);
-
         $this->viewBuilder()->setTemplatePath('Error');
-    }
-
-    /**
-     * afterFilter callback.
-     *
-     * @param \Cake\Event\Event $event Event.
-     * @return \Cake\Http\Response|null|void
-     */
-    public function afterFilter(Event $event)
-    {
     }
 }
