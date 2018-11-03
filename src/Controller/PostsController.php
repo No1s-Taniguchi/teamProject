@@ -30,10 +30,10 @@ class PostsController extends AppController
 			$post = $this->Posts->patchEntity($post, $this->request->data);
 			
                         if ($this->Posts->save($post)){
-				$this->Flash->success(__('著者を新規登録しました'));
+				$this->Flash->success(__('新しい依頼を登録しました'));
 				return $this->redirect(['action' => 'index']);
 			}
-			$this->Flash->error(__('著者の新規登録に失敗しました'));
+			$this->Flash->error(__('新しい依頼登録に失敗しました'));
 		}
                 
 		$this->set(compact('post'));
@@ -55,10 +55,10 @@ class PostsController extends AppController
 		if($this->request->is(['patch', 'post', 'put'])){
 			$post = $this->Posts->patchEntity($post, $this->request->data);
 			if($this->Posts->save($post)){
-				$this->Flash->success(__('著者を更新しました'));
+				$this->Flash->success(__('依頼を更新しました'));
 				return $this->redirect(['action' => 'index']);
 			}
-			$this->Flash->error(__('著者の更新に失敗しました'));
+			$this->Flash->error(__('依頼の更新に失敗しました'));
 		}
 		$this->set(compact('post'));
 	}
