@@ -4,7 +4,19 @@ namespace App\Controller;
 use App\Controller\AppController;
 
 class SampleController extends AppController {
+	function beforeFilter() {
+	    parent::beforeFilter();
+	}
     public function index() {
+
+       //一覧ページからGETでIDを受け取る
+       $id = $this->param['pass'][0];
+       or
+       $id = $this->request->query('id');
+       //受け取ったIDの情報をDBから取得する
+       $result = $this->DB名->findById($id);
+
+
       $name = 'データベース：名前';
       $sex = 'データベース：性別';
       $age = 'データベース：年齢';
@@ -17,7 +29,5 @@ class SampleController extends AppController {
       $this->set('time', $time);
       $this->set('content', $content);
       $this->set('remarks', $remarks);
-      //INSERT INTO `tp_detail`(`id`, `title`, `sex`, `age`, `time`, `content`, `remarks`) VALUES (1,'テスト','男',30,201810281200,'テスト1234abcd','テスト備考')
     }
 }
-
