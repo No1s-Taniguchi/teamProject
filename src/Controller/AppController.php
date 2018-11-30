@@ -45,6 +45,28 @@ class AppController extends Controller
             'enableBeforeRedirect' => false,
         ]);
         $this->loadComponent('Flash');
+        $this->loadComponent('Auth', [
+            // 'authenticate' => [  //送信されたフォームデータのキーとログイン処理の「username」「password」を紐つける設定
+            //     'Form' => [
+            //         'userModel' => 'Users',
+            //         'fields' => ['username' => 'username','password' => 'password']
+            //     ]
+            // ],
+            // 'loginAction' => [  //ログイン処理を実行する場所設定
+            //     'controller' => 'Users',
+            //     'action' => 'login'
+			// ],
+			'authorize' => ['Controller'],
+            'loginRedirect' => [  //ログイン後のリダイレクト先設定
+                'controller' => 'Users',
+                'action' => 'index'
+            ],
+            'logoutRedirect' => [  //ログアウト後のリダイレクト先設定
+                'controller' => 'Users',
+                'action' => 'index'
+            ]
+
+        ]);
 
         /*
          * Enable the following component for recommended CakePHP security settings.
