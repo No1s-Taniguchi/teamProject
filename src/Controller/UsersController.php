@@ -22,8 +22,10 @@ class UsersController extends AppController
             if ($user) {
                 $this->Auth->setUser($user);
                 return $this->redirect($this->Auth->redirectUrl());
+            } else {
+                $this->Flash->error(__('Invalid username or password, try again'));
             }
-            $this->Flash->error(__('Invalid username or password, try again'));
+            
         }
     }
 
@@ -32,10 +34,10 @@ class UsersController extends AppController
         return $this->redirect($this->Auth->logout());
     }
 
-    public function isAuthorized($user)
+    public function isAuthorized($user) 
     {
         return true;
-    }
+    }   
 
     public function index()
     {
@@ -55,7 +57,7 @@ class UsersController extends AppController
             $user = $this->Users->patchEntity($user, $this->request->data);
             if ($this->Users->save($user)) {
                 $this->Flash->success(__('The user has been saved.'));
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['action' => 'add']);
             }
             $this->Flash->error(__('Unable to add the user.'));
         }
