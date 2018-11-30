@@ -74,4 +74,10 @@ class AppController extends Controller
          */
         //$this->loadComponent('Security');
     }
+	
+	
+    public function isAuthorized($user) /* add */
+    {
+        return false;
+    }
 }
