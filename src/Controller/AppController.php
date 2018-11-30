@@ -14,9 +14,25 @@ class AppController extends Controller
 
         $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
+        $this->loadComponent('Auth', [
+			      'authorize' => ['Controller'],
+            'loginRedirect' => [  //ログイン後のリダイレクト先設定
+                'controller' => 'Users',
+                'action' => 'index'
+            ],
+            'logoutRedirect' => [  //ログアウト後のリダイレクト先設定
+                'controller' => 'Users',
+                'action' => 'index'
+            ]
+
+        ]);
     }
-    
-    
+	
+    public function isAuthorized($user) /* add */
+    {
+        return false;
+    }
+  
     public function beforeRender(Event $event)
     {
     	$this->set("menu", "default");
@@ -26,10 +42,4 @@ class AppController extends Controller
             $this->set('_serialize', true);
         }
     }
-    
-    public function isAuthorized($user = null)
-    {
-    	return false;
-    }
-    
 }
