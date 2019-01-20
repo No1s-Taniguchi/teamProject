@@ -2,6 +2,7 @@
 <?php
 echo $this->Html->css('details');
 ?>
+
 <table border="1" class="s1">
   <tr>
     <td class="reft" width="30">名前</td>
