@@ -27,9 +27,10 @@ echo $this->Html->css('details');
   <?php endforeach; ?>
 </table>
 
-<a href="#" class="square_btn reg">承諾</a>
-<a href="#" class="square_btn req">辞退</a>
+<a href="#" class="square_btn accept">承諾</a>
+<a href="#" class="square_btn withdraw">辞退</a>
 
 <p>
-<a href="#" class="s1">戻る</a>
+<br>
+<a href="#" class="btn-back">戻る</a>
 </p>

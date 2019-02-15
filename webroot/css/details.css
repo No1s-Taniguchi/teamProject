@@ -29,51 +29,66 @@ td.right {
     text-align: center;
 }
 
-.square_btn.r {
-    position: relative;
-    display: inline-block;
-    padding: 0.25em 0.5em;
-    text-decoration: none;
-    color: #FFF;
-    background: red;/*色*/
-    border-radius: 4px;/*角の丸み*/
-    box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), inset 0 -2px 0 rgba(0, 0, 0, 0.05);
-    font-weight: bold;
-    border: solid 2px #cc3333;/*線色*/
-    width: 70;
-    text-align: center;
+.square_btn.withdraw {
+  margin-left : 30px ;
+  display: inline-block;
+  padding: 0.2em 0.5em;
+  text-decoration: none;
+  background: #FF3333;
+  color: #FFF;
+  border-radius: 2px;
+  box-shadow: 0px 0px 0px 5px #FF3333;
+  border: dashed 1px #FF3333;
 }
 
-.square_btn.reg {
-    position: relative;
-    display: inline-block;
-    padding: 0.25em 0.5em;
-    text-decoration: none;
-    color: #FFF;
-    background: #ffcc00;/*色*/
-    border-radius: 4px;/*角の丸み*/
-    box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), inset 0 -2px 0 rgba(0, 0, 0, 0.05);
-    font-weight: bold;
-    border: solid 2px #ffcc00;/*線色*/
-    width: 100;
-    text-align: center;
+.square_btn.fav {
+  margin-left : 10px ;
+  display: inline-block;
+  padding: 0.2em 0.5em;
+  text-decoration: none;
+  background: #FFCC66;
+  color: #FFF;
+  border-radius: 2px;
+  box-shadow: 0px 0px 0px 5px #FFCC66;
+  border: dashed 1px #FFCC66;
 }
 
-.square_btn.req {
-    position: relative;
-    display: inline-block;
-    padding: 0.25em 0.5em;
-    text-decoration: none;
-    color: #FFF;
-    background: #fd9535;/*色*/
-    border-radius: 4px;/*角の丸み*/
-    box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), inset 0 -2px 0 rgba(0, 0, 0, 0.05);
-    font-weight: bold;
-    border: solid 2px #d27d00;/*線色*/
-    width: 70;
-    text-align: center;
+.square_btn.ask {
+  margin-left : 10px ;
+  display: inline-block;
+  padding: 0.2em 0.5em;
+  text-decoration: none;
+  background: #66CC99;
+  color: #FFF;
+  border-radius: 2px;
+  box-shadow: 0px 0px 0px 5px #66CC99;
+  border: dashed 1px #66CC99;
 }
 
-.square_btn:active {/*押したとき*/
-    box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
+.square_btn.accept {
+  margin-left : 10px ;
+  display: inline-block;
+  padding: 0.2em 0.5em;
+  text-decoration: none;
+  background: #66CC99;
+  color: #FFF;
+  border-radius: 2px;
+  box-shadow: 0px 0px 0px 5px #66CC99;
+  border: dashed 1px #66CC99;
+}
+
+.btn-back {
+  margin-left : 10px ;
+  display: inline-block;
+  padding: 0.2em 0.5em;
+  text-decoration: none;
+  background: #C0C0C0;
+  color: #FFF;
+  border-radius: 2px;
+  box-shadow: 0px 0px 0px 5px #C0C0C0;
+  border: dashed 1px #C0C0C0;
+}
+
+.btn-stitch:hover {
+  border: dotted 1px #C0C0C0;
 }
