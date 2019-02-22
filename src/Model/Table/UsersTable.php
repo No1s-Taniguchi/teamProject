@@ -16,7 +16,11 @@ class UsersTable extends Table
             $this->table('users');
             $this->displayField('id');
             $this->primaryKey('id');
-            $this->addBehavior('Timestamp');	
+            $this->addBehavior('Timestamp');
+            
+            $this->hasMany('Posts',[
+			'foreignKey' => 'user_id'
+            ]);
     }
     
     public function validationDefault(Validator $validator)
