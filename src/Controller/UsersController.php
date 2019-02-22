@@ -10,18 +10,22 @@ class UsersController extends AppController
 
     public function beforeFilter(Event $event)
     {
-        parent::beforeFilter($event);
-        $this->Auth->allow(['add', 'logout']);
+        parent::initialize();
+        //ユーザ登録とログインのためにMyAuthを利用する
+        $this->loadComponent("MyAuth");
+        //以下のアクションのみはアクセス可能にする
+        $this->MyAuth->allow(["add","logout"]);
+        
     }
 
     public function login()
     {
         if ($this->request->is('post')) {
-            $user = $this->Auth->identify();
+            $user = $this->MyAuth->identify();
             var_dump($user);
             if ($user) {
-                $this->Auth->setUser($user);
-                return $this->redirect($this->Auth->redirectUrl());
+                $this->MyAuth->setUser($user);
+                return $this->redirect($this->MyAuth->redirectUrl());
             } else {
                 $this->Flash->error(__('Invalid username or password, try again'));
             }
@@ -31,7 +35,7 @@ class UsersController extends AppController
 
     public function logout()
     {
-        return $this->redirect($this->Auth->logout());
+        return $this->redirect($this->MyAuth->logout());
     }
 
     public function isAuthorized($user)
