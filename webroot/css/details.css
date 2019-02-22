@@ -30,7 +30,7 @@ td.right {
 }
 
 .square_btn.withdraw {
-  margin-left : 30px ;
+  margin-left : 20px ;
   display: inline-block;
   padding: 0.2em 0.5em;
   text-decoration: none;
@@ -54,7 +54,7 @@ td.right {
 }
 
 .square_btn.ask {
-  margin-left : 10px ;
+  margin-left : 20px ;
   display: inline-block;
   padding: 0.2em 0.5em;
   text-decoration: none;

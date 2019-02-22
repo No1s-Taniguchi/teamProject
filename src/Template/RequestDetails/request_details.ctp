@@ -27,10 +27,10 @@ echo $this->Html->css('details');
   <?php endforeach; ?>
 </table>
 
-<a href="#" class="square_btn accept">承諾</a>
-<a href="#" class="square_btn withdraw">辞退</a>
+<a><input type="submit" class="square_btn accept" value="承諾する" onClick="alert('依頼を承諾しました');"></a>
+<a><input type="submit" class="square_btn withdraw" value="辞退する" onClick="alert('依頼を辞退しました');"></a>
 
 <p>
 <br>
-<a href="#" class="btn-back">戻る</a>
+<a href="Posts" class="btn-back">戻る</a>
 </p>
