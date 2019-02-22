@@ -35,7 +35,11 @@ class UsersController extends AppController
                 $this->MyAuth->setUser($user);
                 return $this->redirect($this->MyAuth->redirectUrl());
             }
+<<<<<<< HEAD
             $this->Flash->error(__('ID、またはパスワードが間違っています'));
+=======
+
+>>>>>>> b20f960... ログイン
         }
         //ログイン画面を表示
         $this->set(compact('user'));
@@ -46,7 +50,11 @@ class UsersController extends AppController
         return $this->redirect($this->MyAuth->logout());
     }
 
+<<<<<<< HEAD
     public function isMyAuthorized($user)
+=======
+    public function isAuthorized($user)
+>>>>>>> b20f960... ログイン
     {
         return true;
     }
