@@ -2,7 +2,6 @@
 <?php
 echo $this->Html->css('details');
 ?>
-
 <table border="1" class="s1">
   <tr>
   <?php foreach ($results as $result): ?>
@@ -11,7 +10,11 @@ echo $this->Html->css('details');
   </tr>
   <tr>
     <td class="reft">性別</td>
-    <td><?php echo $result->sex; ?></td>
+    <?php if($result->sex == 1): ?>
+        <td><?php echo '男性'; ?></td>
+    <?php else: ?>
+        <td><?php echo '女性'; ?></td>
+    <?php endif; ?>
   </tr>
   <tr>
     <td class="reft">年齢</td>
@@ -19,7 +22,7 @@ echo $this->Html->css('details');
   </tr>
   <tr>
     <td class="reft">時間</td>
-    <td><?php echo $result->time; ?></td>
+    <td><?php echo $result->time->i18nFormat('YYYY/MM/dd HH:mm:ss'); ?></td>
   </tr>
     <tr>
     <td class="reft">内容</td>
@@ -32,10 +35,19 @@ echo $this->Html->css('details');
   <?php endforeach; ?>
 </table>
 
-<a href="#" class="square_btn fav">お気に入り</a>
-<a href="#" class="square_btn ask">依頼する</a>
+<form method="POST" name="add" action="Details">
 
+<?php if(empty($fav) || $fav == 0): ?>
+<a><input type="submit" name="fav_on" class="square_btn fav_on" value="お気に入り" onClick="alert('お気に入りに登録しました');"></a>
+<?php else: ?>
+<a><input type="submit" name="fav_off" class="square_btn fav_off" value="お気に入り" onClick="alert('お気に入りを解除しました');"></a>
+
+<?php endif; ?>
+
+<a><input type="submit" name="ask" class="square_btn ask" value="依頼する" onClick="alert('依頼しました');"></a>
+</form>
 <p>
 <br>
-<a href="#" class="btn-back">戻る</a>
+<a href="Posts" class="btn-back">戻る</a>
 </p>
+
