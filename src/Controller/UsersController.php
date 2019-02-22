@@ -8,53 +8,33 @@ use Cake\Event\Event;
 class UsersController extends AppController
 {
 
-    /*
     public function beforeFilter(Event $event)
     {
         parent::beforeFilter($event);
-        $this->MyAuth->allow(['add', 'logout']);
-    }
-     * 
-     */
-    
-    public function initialize()
-    {
-        parent::initialize();
-        //ユーザ登録とログインのためにMyAuthを利用する
-        $this->loadComponent("MyAuth");
-        //以下のアクションのみはアクセス可能にする
-        $this->MyAuth->allow(["login","add"]);
+        $this->Auth->allow(['add', 'logout']);
     }
 
     public function login()
     {
-        $user = $this->Users->newEntity();
         if ($this->request->is('post')) {
-            $user = $this->MyAuth->identify();
+            $user = $this->Auth->identify();
+            var_dump($user);
             if ($user) {
-                $this->MyAuth->setUser($user);
-                return $this->redirect($this->MyAuth->redirectUrl());
+                $this->Auth->setUser($user);
+                return $this->redirect($this->Auth->redirectUrl());
+            } else {
+                $this->Flash->error(__('Invalid username or password, try again'));
             }
-<<<<<<< HEAD
-            $this->Flash->error(__('ID、またはパスワードが間違っています'));
-=======
 
->>>>>>> b20f960... ログイン
         }
-        //ログイン画面を表示
-        $this->set(compact('user'));
     }
 
     public function logout()
     {
-        return $this->redirect($this->MyAuth->logout());
+        return $this->redirect($this->Auth->logout());
     }
 
-<<<<<<< HEAD
-    public function isMyAuthorized($user)
-=======
     public function isAuthorized($user)
->>>>>>> b20f960... ログイン
     {
         return true;
     }
@@ -76,11 +56,10 @@ class UsersController extends AppController
         if ($this->request->is('post')) {
             $user = $this->Users->patchEntity($user, $this->request->data);
             if ($this->Users->save($user)) {
-                $this->Flash->success(__('ユーザ登録が完了しました'));
-                //return $this->redirect(['action' => 'index']);
-                return $this->redirect($this->MyAuth->redirectUrl());
+                $this->Flash->success(__('The user has been saved.'));
+                return $this->redirect(['action' => 'add']);
             }
-            $this->Flash->error(__('ユーザ登録に失敗しました'));
+            $this->Flash->error(__('Unable to add the user.'));
         }
         $this->set('user', $user);
     }
