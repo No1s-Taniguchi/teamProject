@@ -25,7 +25,7 @@ class UsersController extends AppController
             } else {
                 $this->Flash->error(__('Invalid username or password, try again'));
             }
-            
+
         }
     }
 
@@ -34,10 +34,10 @@ class UsersController extends AppController
         return $this->redirect($this->Auth->logout());
     }
 
-    public function isAuthorized($user) 
+    public function isAuthorized($user)
     {
         return true;
-    }   
+    }
 
     public function index()
     {
