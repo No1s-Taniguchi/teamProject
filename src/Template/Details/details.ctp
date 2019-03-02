@@ -37,7 +37,7 @@ echo $this->Html->css('details');
 
 <form method="POST" name="add" action="Details">
 
-<?php if(empty($fav) || $fav == 0): ?>
+<?php if($fav == 0): ?>
 <a><input type="submit" name="fav_on" class="square_btn fav_on" value="お気に入り" onClick="alert('お気に入りに登録しました');"></a>
 <?php else: ?>
 <a><input type="submit" name="fav_off" class="square_btn fav_off" value="お気に入り" onClick="alert('お気に入りを解除しました');"></a>
