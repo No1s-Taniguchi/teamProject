@@ -41,7 +41,19 @@ td.right {
   border: dashed 1px #FF3333;
 }
 
-.square_btn.fav {
+.square_btn.fav_on {
+  margin-left : 10px ;
+  display: inline-block;
+  padding: 0.2em 0.5em;
+  text-decoration: none;
+  background: #DDDDDD;
+  color: #FFF;
+  border-radius: 2px;
+  box-shadow: 0px 0px 0px 5px #DDDDDD;
+  border: dashed 1px #DDDDDD;
+}
+
+.square_btn.fav_off {
   margin-left : 10px ;
   display: inline-block;
   padding: 0.2em 0.5em;
@@ -52,7 +64,6 @@ td.right {
   box-shadow: 0px 0px 0px 5px #FFCC66;
   border: dashed 1px #FFCC66;
 }
-
 .square_btn.ask {
   margin-left : 20px ;
   display: inline-block;

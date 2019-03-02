@@ -33,15 +33,12 @@ class DetailsController extends AppController {
         $this->set('favorites',$favorites);
         $this->render('details');
 
-        var_dump($_POST);
         if (!empty($_POST['fav_off'])) {
-            $_POST['fav_on'] = '';
             $fav = 0;
             $this->set('fav',$fav);
             $this->render('details');
         }
         if (!empty($_POST['fav_on'])) {
-            $_POST['fav_off'] = '';
             $fav = 1;
             $this->set('fav',$fav);
             $this->render('details');
