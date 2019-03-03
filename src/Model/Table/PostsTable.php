@@ -19,16 +19,14 @@ class PostsTable extends Table
 		
 		$this->addBehavior('Timestamp');
 		
-                /*
-		$this->belongsTo('Authors',[
-				'foreignKey' => 'author_id',
-				'joinType' => 'INNER'
+                $this->belongsTo('Users',[
+				'foreignKey' => 'id',
+				'joinType'   => 'INNER'
 		]);
 		$this->belongsTo('Categories',[
 				'foreignKey' => 'category_id',
 				'joinType' => 'INNER'
 		]);
-                */
 	}
 	
 	public function validationDefault(Validator $validator)
@@ -63,8 +61,13 @@ class PostsTable extends Table
 	
 	public function buildRules(RulesChecker $rules)
 	{
+
+                $rules->add($rules->existsIn(['user_id'], 'Users'));
+		return $rules;
+		
+		$rules->add($rules->existsIn(['category_id'], 'Categories'));
+		return $rules;
             
-            return $rules;
             /*
 		$rules->add($rules->existsIn(
 				['author_id'],
