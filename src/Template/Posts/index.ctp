@@ -1,50 +1,36 @@
 <h1 class="page-header">新着エントリー</h1>
-<table class="table table-striped" cellpadding="0" cellspacing="0">
 
 
     
 <?php foreach($posts as $post): ?>
- 
+<table class="table table-striped" cellpadding="0" cellspacing="0">
 <tr>
-	<th scope="col"><?= $this->Paginator->sort('id') ?></th>
-        
+    <th scope="col"><?= $this->Paginator->sort('id') ?></th>
 </tr>
 <tr>
     <td><?= h($post->id) ?></td>
 </tr>
 <tr>
-	<th scope="col">タイトル</th>
+    <th scope="col">タイトル</th>
 </tr>
 <tr>
     <td><?= h($post->title) ?></td>
 </tr>
 <tr>
-	<th scope="col">名前</th>
+    <th scope="col">名前</th>
 </tr>
 <tr>
-    <td><?= h($post->user->mail_address) ?></td>
+    <td><?= h($post->user->nick_name) ?></td>
 </tr>
-<tr>
-	<th style=fontcolor:blue;><a href=''>お気に入り追加</a></th>	
-</tr>
-<tr>
-	<th scope="col">期間</th>
-</tr>
-<tr>
-    <td><?= h($post->period) ?></td>
-</tr>
-<tr>
-	<th scope="col">スキル</th>
-</tr>
-<tr>
-	<th scope="col">提供内容</th>
-</tr>
-<tr>
-    <td><?= h($post->body) ?></td>
-</tr>
-
-<?php endforeach; ?>
+<tr><th class="square_btn fav_on">
+<?php
+echo $this->Html->link("お気に入り追加",["controller" => "Favorites","action" => "add", $post->id]);
+?>
+</th></tr>
 </table>
+<?php endforeach; ?>
+
+
 <div class="paginator">
 	<ul class="paginator">
 		<?= $this->Paginator->numbers([

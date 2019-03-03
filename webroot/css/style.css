@@ -535,3 +535,23 @@ body {
 .main .page-header {
     margin-top: 0;
 }
+
+.square_btn {
+  margin :0px 0px 10px 10px ;
+  display: inline-block;
+  padding: 0.2em 0.5em;
+  text-decoration: none;
+  background: #FFCC66;
+  color: #FFF;
+  border-radius: 2px;
+  box-shadow: 0px 0px 0px 5px #FFCC66;
+  border: dashed 1px #FFCC66;
+}
+
+.table-striped {
+    margin-bottom: 60px;
+    border: 4px solid #1798A5;
+    border-radius: 2px;
+}
+
+
