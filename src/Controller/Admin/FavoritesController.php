@@ -6,9 +6,9 @@
  * and open the template in the editor.
  */
 
-namespace App\Controller;
+namespace App\Controller\Admin;
 
-use App\Controller\AppController;
+use App\Controller\Admin\AppController;
 
 class FavoritesController extends AppController
 {
