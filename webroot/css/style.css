@@ -537,7 +537,7 @@ body {
 }
 
 .square_btn {
-  margin :0px 0px 10px 10px ;
+  margin :10px 0px 10px 10px ;
   display: inline-block;
   padding: 0.2em 0.5em;
   text-decoration: none;

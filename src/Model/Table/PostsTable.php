@@ -20,7 +20,7 @@ class PostsTable extends Table
 		$this->addBehavior('Timestamp');
 		
                 $this->belongsTo('Users',[
-				'foreignKey' => 'id',
+				'foreignKey' => 'user_id',
 				'joinType'   => 'INNER'
 		]);
                 
@@ -39,7 +39,6 @@ class PostsTable extends Table
 		$validator
 				->notEmpty('title');
                 $validator
-                                ->integer('period')
                                 ->notEmpty('period');
                 
                 /*
