@@ -9,7 +9,7 @@ class DetailsController extends AppController {
         $id = $this->request->query('id');
         $id = 2;
         $postId = 2;
-        $this->loadModel('Favorites');
+//        $this->loadModel('Favorites');
 
         /*$favoritesTable = TableRegistry::get('favorites');
         $newfav = $favoritesTable->get(1);
@@ -22,7 +22,7 @@ class DetailsController extends AppController {
         $favoritesTable->save($newfavorites);
         $this->set('fav',$newfavorites);
 
-        */
+
         $favorites = $this->Favorites->find('all',array(
             'conditions' => array('user_id' => $id)
         ));
@@ -32,7 +32,7 @@ class DetailsController extends AppController {
         $this->set('fav',$fav);
         $this->set('favorites',$favorites);
         $this->render('details');
-
+*/
         if (!empty($_POST['fav_off'])) {
             $fav = 0;
             $this->set('fav',$fav);
@@ -44,7 +44,9 @@ class DetailsController extends AppController {
             $this->render('details');
         }
         if (!empty($_POST['ask'])) {
-
+            $fav = 1;
+            $this->set('fav',$fav);
+            $this->render('details');
         }
 
         $results = $this->Details->find('all',array(
