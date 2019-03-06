@@ -1,7 +1,8 @@
+<h1 class="page-header">ユーザ編集</h1>
+
 <div class="users form">
 <?= $this->Form->create($user) ?>
     <fieldset>
-        <legend><?= __('Add User') ?></legend>
         <?= $this->Form->input('family_name') ?>
         <?= $this->Form->input('first_name') ?>
         <?= $this->Form->input('phonetic_family_name') ?>

@@ -1,6 +1,6 @@
 <h1 class="page-header">新着エントリー</h1>
 
-
+test
     
 <?php foreach($posts as $post): ?>
 <table class="table table-striped" cellpadding="0" cellspacing="0">

@@ -10,12 +10,11 @@ class HomesController extends AppController
 	{
 		$this->loadModel('Posts');
 		
-		$this->paginate = [
-				'contain' => ['Users'],
+                $this->paginate = [
 				'limit' => 5,
 				'order' => ['id' => 'ASC'],
+                                'contain' => ['Users'],
 		];
-		
 		$posts = $this->paginate($this->Posts);
 		$this->set(compact('posts'));
 	}

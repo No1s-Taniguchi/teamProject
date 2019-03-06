@@ -8,15 +8,6 @@ use Cake\Event\Event;
 class UsersController extends AppController
 {
 
-    /*
-    public function beforeFilter(Event $event)
-    {
-        parent::beforeFilter($event);
-        $this->MyAuth->allow(['add', 'logout']);
-    }
-     * 
-     */
-    
     public function initialize()
     {
         parent::initialize();
@@ -24,6 +15,7 @@ class UsersController extends AppController
         $this->loadComponent("MyAuth");
         //以下のアクションのみはアクセス可能にする
         $this->MyAuth->allow(["login","add"]);
+        
     }
 
     public function login()
@@ -34,22 +26,22 @@ class UsersController extends AppController
             if ($user) {
                 $this->MyAuth->setUser($user);
                 return $this->redirect($this->MyAuth->redirectUrl());
+            } else {
+                $this->Flash->error(__('ID、またはパスワードが間違っています'));
             }
-            $this->Flash->error(__('ID、またはパスワードが間違っています'));
         }
-        //ログイン画面を表示
         $this->set(compact('user'));
     }
-
+    
     public function logout()
     {
         return $this->redirect($this->MyAuth->logout());
     }
 
-    public function isMyAuthorized($user)
-    {
-        return true;
-    }
+//    public function isAuthorized($user)
+//    {
+//        return true;
+//    }
 
     public function index()
     {
@@ -69,8 +61,7 @@ class UsersController extends AppController
             $user = $this->Users->patchEntity($user, $this->request->data);
             if ($this->Users->save($user)) {
                 $this->Flash->success(__('ユーザ登録が完了しました'));
-                //return $this->redirect(['action' => 'index']);
-                return $this->redirect($this->MyAuth->redirectUrl());
+                return $this->redirect(['action' => 'add']);
             }
             $this->Flash->error(__('ユーザ登録に失敗しました'));
         }

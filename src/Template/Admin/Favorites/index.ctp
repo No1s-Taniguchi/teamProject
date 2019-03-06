@@ -1,30 +1,29 @@
-<h1 class="page-header">新着エントリー</h1>
 
-
+<h1 class="page-header">お気に入り一覧</h1>
     
-<?php foreach($posts as $post): ?>
+<?php foreach($favorites as $favorite): ?>
 <table class="table table-striped" cellpadding="0" cellspacing="0">
 <tr>
     <th scope="col"><?= $this->Paginator->sort('id') ?></th>
 </tr>
 <tr>
-    <td><?= h($post->id) ?></td>
+    <td><?= h($favorite->post->id) ?></td>
 </tr>
 <tr>
     <th scope="col">タイトル</th>
 </tr>
 <tr>
-    <td><?= h($post->title) ?></td>
+    <td><?= h($favorite->post->title) ?></td>
 </tr>
 <tr>
     <th scope="col">名前</th>
 </tr>
 <tr>
-    <td><?= h($post->user->nick_name) ?></td>
+    <td><?= h($favorite->user->nick_name) ?></td>
 </tr>
 <tr><th class="square_btn fav_on">
 <?php
-echo $this->Html->link("お気に入り追加",["controller" => "Favorites","action" => "add", $post->id]);
+echo $this->Html->link("お気に入り解除",["controller" => "Favorites","action" => "delete",$favorite->post->id]);
 ?>
 </th></tr>
 </table>
@@ -39,3 +38,4 @@ echo $this->Html->link("お気に入り追加",["controller" => "Favorites","act
 		]) ?>
 	</ul>
 </div>
+
