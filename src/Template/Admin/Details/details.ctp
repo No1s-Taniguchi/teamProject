@@ -48,6 +48,6 @@ echo $this->Html->css('details');
 </form>
 <p>
 <br>
-<a href="Posts" class="btn-back">戻る</a>
+<a href="../../" class="btn-back">戻る</a>
 </p>
 
