@@ -1,7 +1,7 @@
 <h1 class="page-header">新着エントリー</h1>
 
 test
-    
+
 <?php foreach($posts as $post): ?>
 <table class="table table-striped" cellpadding="0" cellspacing="0">
 <tr>
@@ -27,6 +27,11 @@ test
 echo $this->Html->link("お気に入り追加",["controller" => "Favorites","action" => "add", $post->id]);
 ?>
 </th></tr>
+<th class="info">
+<?php
+echo $this->Html->link("詳細",["controller" => "Details","action" => "index", $post->id]);
+?>
+</th>
 </table>
 <?php endforeach; ?>
 
